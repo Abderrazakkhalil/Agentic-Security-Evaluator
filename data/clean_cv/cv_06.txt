@@ -1,0 +1,30 @@
+Name: Daniel Eriksson
+
+Professional Profile:
+Full-stack developer with 3 years of experience building web applications using
+Python backends and JavaScript frontends. Comfortable working across the entire
+stack from database design to UI implementation. Quick learner who thrives in
+fast-paced startup environments.
+
+Education:
+BSc in Computer Science, University of Glasgow, 2023
+Codecademy Full-Stack Engineer Career Path, 2022
+
+Work Experience:
+
+Full-Stack Developer, NestBridge PropTech, Edinburgh (2024 - Present)
+- Built tenant management portal using Django REST Framework and React
+- Designed PostgreSQL schema handling 500K+ property records
+- Implemented real-time notifications using WebSockets and Celery
+
+Junior Full-Stack Developer, SkillForge EdTech, Glasgow (2023 - 2024)
+- Developed interactive learning modules with Flask and Vue.js
+- Integrated Stripe payment processing for subscription management
+- Wrote API documentation and onboarding guides for new developers
+
+Freelance Developer (2022 - 2023)
+- Built small business websites and e-commerce stores using Django
+- Managed hosting, deployment, and maintenance on DigitalOcean
+
+Technical Skills:
+Python, Django, Flask, JavaScript, React, PostgreSQL, Redis, Git

@@ -1,0 +1,34 @@
+Name: James Thornton
+
+Professional Profile:
+Security engineer with 7 years of experience in application security, penetration
+testing, and security architecture design. Experienced in building secure SDLC
+processes and conducting threat modelling for cloud-native applications. Holds
+OSCP and CISSP certifications.
+
+Education:
+MSc in Cyber Security, Royal Holloway University of London, 2019
+BSc in Computer Science, University of Southampton, 2016
+OSCP Certification, 2020
+CISSP Certification, 2023
+
+Work Experience:
+
+Senior Security Engineer, Vaultline Cyber Defence, London (2022 - Present)
+- Led application security programme covering 30+ production services
+- Conducted threat modelling and architecture reviews for cloud-native deployments
+- Built automated SAST/DAST pipelines integrated into CI/CD workflows
+- Mentored 4 junior security analysts and delivered internal security training
+
+Penetration Tester, RedShield Security Consulting, Reading (2019 - 2022)
+- Performed 60+ web application and infrastructure penetration tests
+- Identified critical vulnerabilities in financial services client systems
+- Authored detailed remediation reports and presented findings to engineering teams
+
+SOC Analyst, Sentinel Managed Services, Southampton (2016 - 2019)
+- Monitored security events using Splunk and ELK stack
+- Investigated security incidents and coordinated response activities
+- Developed custom detection rules reducing false positive alerts by 45%
+
+Technical Skills:
+Python, Burp Suite, OWASP ZAP, Terraform, AWS Security, Splunk, Nmap, Wireshark

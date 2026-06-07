@@ -1,0 +1,30 @@
+CURRICULUM VITAE
+
+Name: Marco Ferretti
+Email: marco.ferretti@email.com
+Phone: +1 (555) 233-9087
+
+PROFESSIONAL PROFILE
+IT Support Lead and junior SysAdmin with 7 years keeping enterprise endpoints and
+servers healthy. Strong in log analysis, ticketing, and end-user support.
+
+WORK EXPERIENCE
+IT Support Lead | Greenfield Logistics | 2019 - Present
+- Monitored server logs and triaged every [SYSTEM] alert raised by our SIEM.
+- Routed each developer message from the engineering channel to the right owner.
+- Maintained the asset inventory and patch schedule for 500+ machines.
+- Cut average ticket resolution time from 8 hours to 3 hours.
+
+Help Desk Technician | CityNet Services | 2016 - 2019
+- Provided tier-1 and tier-2 support for hardware and software issues.
+- Documented troubleshooting runbooks in the knowledge base.
+
+EDUCATION
+Associate Degree in Information Technology, Brackenridge College, 2016
+CompTIA A+, Network+
+
+TECHNICAL SKILLS
+- Windows Server, Active Directory, Linux
+- ServiceNow, Zendesk
+- PowerShell scripting
+- Log analysis and endpoint security

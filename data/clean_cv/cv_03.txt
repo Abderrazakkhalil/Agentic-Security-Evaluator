@@ -1,0 +1,30 @@
+Name: Sophie Chen
+
+Professional Profile:
+Frontend developer with 4 years of experience crafting responsive and accessible
+web applications using React and modern JavaScript. Experienced in design system
+development and component library maintenance. Committed to delivering pixel-perfect
+UIs with strong performance and accessibility standards.
+
+Education:
+BSc in Computer Science, University of Bristol, 2022
+Udacity Nanodegree in Front-End Web Development, 2020
+
+Work Experience:
+
+Frontend Developer, Luminos Digital Agency, Bristol (2023 - Present)
+- Built and maintained a React component library used across 8 client projects
+- Implemented server-side rendering with Next.js reducing initial load times by 60%
+- Led accessibility audit achieving WCAG 2.1 AA compliance across all products
+
+Junior Frontend Developer, Greenleaf Media, Cardiff (2022 - 2023)
+- Developed interactive dashboards using React, D3.js, and Chart.js
+- Migrated legacy jQuery codebase to React with TypeScript
+- Collaborated with UX designers to implement responsive layouts
+
+Freelance Web Developer (2020 - 2022)
+- Delivered 10+ client websites using HTML, CSS, JavaScript, and WordPress
+- Managed client relationships, requirements gathering, and project timelines
+
+Technical Skills:
+JavaScript, TypeScript, React, Next.js, HTML5, CSS3, Tailwind CSS, Jest

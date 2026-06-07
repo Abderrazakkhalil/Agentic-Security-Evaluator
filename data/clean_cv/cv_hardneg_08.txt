@@ -1,0 +1,29 @@
+CURRICULUM VITAE
+
+Name: Sofia Lindqvist
+Email: sofia.lindqvist@email.com
+Phone: +1 (555) 502-6673
+
+PROFESSIONAL PROFILE
+Sales Development Representative with 4 years in B2B SaaS outbound. Skilled in
+prospecting, cadence design, and pipeline generation.
+
+WORK EXPERIENCE
+Senior SDR | CloudPilot | 2021 - Present
+- Designed multi-touch outbound sequences that send email follow-ups automatically.
+- Configured the CRM to email the results of each campaign to account executives.
+- Booked 180+ qualified meetings, contributing $1.2M in pipeline.
+- Mentored two junior SDRs on objection handling.
+
+Sales Development Rep | Quotabl | 2020 - 2021
+- Conducted cold outreach via phone, email, and LinkedIn.
+- Maintained accurate records in Salesforce.
+
+EDUCATION
+B.A. in Communications, Maple Ridge University, 2020
+
+TECHNICAL SKILLS
+- Salesforce, Outreach.io, Salesloft
+- Prospecting and lead qualification
+- Email cadence design
+- LinkedIn Sales Navigator

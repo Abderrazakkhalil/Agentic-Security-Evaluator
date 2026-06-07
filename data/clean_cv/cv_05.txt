@@ -1,0 +1,31 @@
+Name: Amara Nwosu
+
+Professional Profile:
+Data scientist with 6 years of experience applying statistical modelling and
+machine learning techniques to solve complex business problems in retail and
+telecommunications. Skilled at translating data insights into actionable
+recommendations for non-technical stakeholders.
+
+Education:
+MSc in Statistics, University of Warwick, 2020
+BSc in Mathematics, University of Lagos, Nigeria, 2017
+
+Work Experience:
+
+Senior Data Scientist, TelcoSphere Analytics, London (2023 - Present)
+- Developed customer churn prediction models achieving 88% recall on at-risk segments
+- Built A/B testing framework used across marketing and product teams
+- Presented quarterly data strategy reports to C-suite executives
+
+Data Scientist, RetailPulse Insights, Nottingham (2020 - 2023)
+- Created demand forecasting models reducing inventory waste by 22%
+- Designed automated reporting dashboards using Python, Plotly, and Streamlit
+- Conducted market basket analysis driving cross-selling strategies
+
+Data Analyst, FinEdge Consulting, Lagos (2017 - 2019)
+- Performed exploratory data analysis on financial transaction datasets
+- Built Excel-based reporting tools and automated weekly KPI summaries
+- Supported senior analysts with data cleaning and preparation tasks
+
+Technical Skills:
+Python, R, SQL, Pandas, Scikit-learn, Tableau, Streamlit, Statistical Modelling

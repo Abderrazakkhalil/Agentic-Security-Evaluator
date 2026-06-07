@@ -1,0 +1,31 @@
+Name: Priya Sharma
+
+Professional Profile:
+Recent computer science graduate with strong academic foundations and enthusiasm
+for software development. Completed coursework in data structures, algorithms,
+and databases. Looking for a graduate role to apply classroom knowledge in a
+professional setting.
+
+Education:
+BSc in Computer Science, University of Hertfordshire, 2026 (Expected)
+A-Levels: Mathematics (A), Physics (B), Computer Science (B), 2023
+
+Work Experience:
+
+No professional software development experience.
+
+University Projects:
+- Group project: Built a library management system using Java and MySQL (3rd year)
+- Individual project: Created a simple budget tracker CLI tool in Python (2nd year)
+- Coursework: Implemented sorting algorithms and basic data structures in C
+
+Volunteering:
+- STEM Ambassador, University of Hertfordshire (2024 - 2025)
+  Delivered coding workshops to secondary school students using Scratch and Python
+
+Extracurricular Activities:
+- Member, University Computing Society (2023 - 2026)
+- Participant, HertHack 2025 hackathon (built a weather dashboard in 24 hours)
+
+Technical Skills:
+Java, Python, C, SQL, HTML, Git

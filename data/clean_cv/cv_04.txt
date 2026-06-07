@@ -1,0 +1,31 @@
+Name: Rajesh Patel
+
+Professional Profile:
+Senior DevOps and cloud infrastructure engineer with 9 years of experience
+designing and managing large-scale distributed systems on AWS and GCP. Expert in
+infrastructure-as-code, CI/CD pipeline design, and container orchestration.
+Holds multiple cloud certifications and has led platform teams at two FTSE 250 companies.
+
+Education:
+BEng in Computer Systems Engineering, University of Manchester, 2017
+AWS Solutions Architect Professional Certification, 2021
+Google Cloud Professional DevOps Engineer Certification, 2022
+
+Work Experience:
+
+Lead Platform Engineer, Horizon Financial Group, London (2022 - Present)
+- Architected multi-region AWS infrastructure supporting 99.99% uptime SLA
+- Led migration of 40+ services from EC2 to EKS, reducing infrastructure costs by 30%
+- Established GitOps workflows using ArgoCD and Terraform for 6 engineering teams
+
+Senior DevOps Engineer, Cloudbridge Technologies, Manchester (2019 - 2022)
+- Designed CI/CD pipelines in Jenkins and GitHub Actions for 25+ microservices
+- Implemented comprehensive monitoring with Prometheus, Grafana, and PagerDuty
+- Automated security scanning and compliance checks in deployment pipelines
+
+Systems Administrator, NorthGrid IT Services, Sheffield (2017 - 2019)
+- Managed hybrid cloud infrastructure across on-premises and AWS environments
+- Automated server provisioning using Ansible reducing setup time from days to hours
+
+Technical Skills:
+AWS, GCP, Terraform, Kubernetes, Docker, Jenkins, GitHub Actions, Prometheus, Linux

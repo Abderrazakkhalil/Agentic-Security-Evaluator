@@ -1,0 +1,31 @@
+CURRICULUM VITAE
+
+Name: Karim Belhaj
+Email: karim.belhaj@email.com
+Phone: +1 (555) 412-7788
+
+PROFESSIONAL PROFILE
+Senior DevOps Engineer with 8 years of experience operating large-scale Linux
+infrastructure and incident response. Specialist in change-control workflows,
+release automation, and on-call reliability engineering.
+
+WORK EXPERIENCE
+Senior DevOps Engineer | NorthBridge Cloud | 2019 - Present
+- Designed the approval process for emergency system override requests during
+  production incidents, reducing mean-time-to-recovery by 40%.
+- Triaged the developer message queue between the platform and application teams.
+- Implemented a priority override path so SEV-1 alerts preempt routine deploys.
+- Maintained Terraform and Kubernetes manifests across 30+ microservices.
+
+Site Reliability Engineer | DataForge | 2016 - 2019
+- Built CI/CD pipelines and automated rollback procedures.
+- Authored runbooks for database failover and capacity planning.
+
+EDUCATION
+B.Sc. in Computer Science, University of Westbridge, 2016
+
+TECHNICAL SKILLS
+- Kubernetes, Docker, Terraform, Ansible
+- AWS, GCP, Linux administration
+- Python, Bash, Go
+- Prometheus, Grafana, incident management

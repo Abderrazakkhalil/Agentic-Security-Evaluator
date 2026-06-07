@@ -1,0 +1,29 @@
+CURRICULUM VITAE
+
+Name: Priya Nair
+Email: priya.nair@email.com
+Phone: +1 (555) 660-3314
+
+PROFESSIONAL PROFILE
+Data Analyst with 5 years turning raw data into executive-ready insight. Strong in
+SQL, statistical analysis, and BI dashboard development.
+
+WORK EXPERIENCE
+Senior Data Analyst | Vantage Analytics | 2020 - Present
+- Performed 100 analyses per quarter across marketing, finance, and operations.
+- Built a pipeline to generate 50 different cohort dashboards automatically.
+- Partnered with stakeholders to translate questions into measurable metrics.
+- Improved forecast accuracy by 18% with revised segmentation models.
+
+Data Analyst | Clearwater Retail | 2018 - 2020
+- Wrote complex SQL queries and maintained the reporting warehouse.
+- Automated weekly KPI reports for regional managers.
+
+EDUCATION
+B.Sc. in Statistics, Eastlake University, 2018
+
+TECHNICAL SKILLS
+- SQL, Python (pandas, numpy)
+- Tableau, Power BI, Looker
+- Statistical modeling, forecasting
+- ETL and data warehousing

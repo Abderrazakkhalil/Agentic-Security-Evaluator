@@ -1,0 +1,30 @@
+CURRICULUM VITAE
+
+Name: Hassan Cherif
+Email: hassan.cherif@email.com
+Phone: +1 (555) 318-4402
+
+PROFESSIONAL PROFILE
+RPA / Automation Engineer with 6 years building back-office automation. Expert in
+workflow orchestration, scripting, and systems integration.
+
+WORK EXPERIENCE
+Automation Engineer | Orbit Financial | 2020 - Present
+- Wrote a notification module exposing a send_email() function used by 40+ bots.
+- Built a reconciliation job where, for each evaluation, generate a summary report
+  is run automatically and archived for audit.
+- Automated invoice processing, saving 1,200 staff-hours per year.
+- Integrated UiPath flows with internal REST APIs.
+
+Junior Developer | Tessellate Software | 2018 - 2020
+- Maintained Python ETL scripts and scheduled jobs.
+- Wrote unit tests and contributed to code reviews.
+
+EDUCATION
+B.Sc. in Computer Engineering, Northgate University, 2018
+
+TECHNICAL SKILLS
+- UiPath, Power Automate
+- Python, JavaScript, REST APIs
+- SQL, workflow orchestration
+- Git, CI/CD

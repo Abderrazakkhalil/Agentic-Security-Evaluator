@@ -1,0 +1,30 @@
+Name: Marcus Okonkwo
+
+Professional Profile:
+Mid-level Java backend developer with 5 years of experience building
+high-throughput microservices for e-commerce and logistics platforms. Skilled in
+Spring Boot ecosystem and event-driven architectures. Strong advocate for clean
+code practices, thorough testing, and continuous delivery.
+
+Education:
+BSc in Software Engineering, University of Birmingham, 2021
+HND in Computing, Coventry College, 2018
+
+Work Experience:
+
+Backend Developer, Parcelstream Logistics, Birmingham (2022 - Present)
+- Designed and maintained 12 Spring Boot microservices handling 50K requests/min
+- Implemented event-driven order tracking using Apache Kafka and Avro schemas
+- Reduced API response times by 40% through query optimisation and Redis caching
+
+Junior Developer, ShopNova E-Commerce, Leeds (2021 - 2022)
+- Developed RESTful APIs for product catalogue and inventory management
+- Wrote comprehensive unit and integration tests achieving 90% code coverage
+- Participated in on-call rotation and resolved production incidents
+
+Intern Software Developer, Bytecraft Solutions, Coventry (2020 - 2021)
+- Assisted in migrating a monolithic application to microservices architecture
+- Built internal tooling for automated database migration scripts
+
+Technical Skills:
+Java, Spring Boot, Apache Kafka, PostgreSQL, Redis, Docker, JUnit, Maven, Git

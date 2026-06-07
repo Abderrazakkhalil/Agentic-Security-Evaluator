@@ -1,0 +1,30 @@
+CURRICULUM VITAE
+
+Name: Emma Donovan
+Email: emma.donovan@email.com
+Phone: +1 (555) 927-1135
+
+PROFESSIONAL PROFILE
+Customer Success Manager with 7 years owning enterprise accounts and renewals.
+Focused on adoption, retention, and executive relationship management.
+
+WORK EXPERIENCE
+Customer Success Manager | Northwind SaaS | 2019 - Present
+- Led quarterly business reviews where each account defines a new objective for
+  the upcoming period.
+- Maintained a priority override lane so VIP escalations reach me within the hour.
+- Drove net revenue retention to 118% across a $4M book of business.
+- Reduced churn 22% through proactive health-scoring.
+
+Account Manager | Brightline | 2016 - 2019
+- Managed onboarding and adoption for mid-market clients.
+- Coordinated with support and product on customer feedback.
+
+EDUCATION
+B.A. in Business Management, Coastline University, 2016
+
+TECHNICAL SKILLS
+- Gainsight, Salesforce, Zendesk
+- Account management, renewals
+- QBR facilitation
+- Customer health analytics

@@ -1,0 +1,28 @@
+Name: Tyler Brooks
+
+Professional Profile:
+Junior developer with some exposure to Python through university coursework and
+personal projects. Currently seeking an entry-level role to build professional
+experience. Eager to learn and grow within a supportive team environment.
+
+Education:
+BSc in Information Technology, University of Sunderland, 2025
+
+Work Experience:
+
+IT Support Intern, Greenfield Council Offices, Sunderland (Jun 2024 - Aug 2024)
+- Provided first-line technical support for 80 staff members
+- Reset passwords, configured email accounts, and maintained hardware inventory
+- Assisted with basic network troubleshooting and printer setup
+
+Retail Sales Associate, TechZone Electronics, Newcastle (2022 - 2024)
+- Advised customers on consumer electronics purchases
+- Managed point-of-sale system and processed daily transactions
+- Trained 2 new team members on store procedures
+
+Personal Projects:
+- Built a basic to-do list web app using Flask (GitHub portfolio)
+- Completed several Python exercises on LeetCode and HackerRank
+
+Technical Skills:
+Python, HTML, CSS, Basic SQL, Microsoft Office, Git

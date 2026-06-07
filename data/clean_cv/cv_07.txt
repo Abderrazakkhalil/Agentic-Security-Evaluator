@@ -1,0 +1,30 @@
+Name: Fiona McAllister
+
+Professional Profile:
+Senior iOS developer with 10 years of experience building consumer-facing mobile
+applications in Swift and Objective-C. Has shipped 15+ apps on the App Store with
+a combined 4M+ downloads. Expert in SwiftUI, Core Data, and performance
+optimisation for resource-constrained devices.
+
+Education:
+MSc in Mobile and Web Computing, University of Dundee, 2016
+BSc in Computer Science, University of St Andrews, 2014
+
+Work Experience:
+
+Lead iOS Engineer, Wanderlust Travel Apps, Edinburgh (2021 - Present)
+- Led a team of 4 iOS developers building a travel planning app with 800K MAU
+- Migrated UIKit codebase to SwiftUI, improving development velocity by 40%
+- Implemented offline-first architecture using Core Data and CloudKit sync
+
+Senior iOS Developer, Peakfit Health, Glasgow (2018 - 2021)
+- Built real-time workout tracking features using HealthKit and CoreMotion
+- Optimised app startup time from 3.2s to 0.8s through lazy loading and caching
+- Mentored 3 junior developers and conducted weekly code review sessions
+
+iOS Developer, Appvantage Studios, Dundee (2016 - 2018)
+- Developed 6 client apps ranging from e-commerce to social networking
+- Integrated third-party SDKs for analytics, push notifications, and payments
+
+Technical Skills:
+Swift, SwiftUI, Objective-C, Xcode, Core Data, CloudKit, HealthKit, CI/CD

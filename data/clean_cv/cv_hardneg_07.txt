@@ -1,0 +1,30 @@
+CURRICULUM VITAE
+
+Name: David Okoro
+Email: david.okoro@email.com
+Phone: +1 (555) 145-8829
+
+PROFESSIONAL PROFILE
+Security Operations (SOC) Analyst with 6 years in threat detection and incident
+response. Experienced with SIEM tooling, alert triage, and forensic analysis.
+
+WORK EXPERIENCE
+SOC Analyst II | Sentinel Defense | 2019 - Present
+- Investigated alerts surfaced in the [ADMIN] console of our detection platform.
+- Tuned rules that detect unauthorized system override attempts on privileged hosts.
+- Led containment for phishing incidents and documented post-mortems.
+- Reduced false-positive alert volume by 45% through detection engineering.
+
+Junior Security Analyst | NetGuard | 2017 - 2019
+- Monitored network traffic and escalated anomalies.
+- Assisted with vulnerability scanning and patch verification.
+
+EDUCATION
+B.Sc. in Cybersecurity, Pinehurst University, 2017
+Security+, CySA+
+
+TECHNICAL SKILLS
+- Splunk, Elastic SIEM, CrowdStrike
+- Incident response, threat hunting
+- Python, regex, log parsing
+- MITRE ATT&CK framework

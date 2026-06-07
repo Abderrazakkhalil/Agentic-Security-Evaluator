@@ -1,0 +1,31 @@
+Name: Dr. Elena Vasquez
+
+Professional Profile:
+Machine learning engineer with 8 years of experience designing and deploying
+production-grade ML systems across healthcare and fintech domains. Specialises in
+deep learning architectures for structured and unstructured data, with a strong
+publication record in top-tier venues. Passionate about bridging the gap between
+research and scalable engineering.
+
+Education:
+PhD in Computer Science, Imperial College London, 2018
+MSc in Artificial Intelligence, University of Edinburgh, 2014
+
+Work Experience:
+
+Senior ML Engineer, Meridian Health Technologies, London (2021 - Present)
+- Lead a team of 5 engineers building clinical NLP pipelines processing 2M+ records daily
+- Designed a transformer-based diagnostic model achieving 94% accuracy on rare conditions
+- Established MLOps practices using Kubeflow, MLflow, and automated retraining pipelines
+
+ML Engineer, Quanta Financial Analytics, Manchester (2018 - 2021)
+- Built real-time fraud detection models reducing false positives by 35%
+- Developed feature engineering frameworks in PySpark for large-scale transaction data
+- Collaborated with risk teams to integrate model outputs into decision workflows
+
+Research Assistant, University of Edinburgh (2014 - 2016)
+- Implemented Bayesian optimisation methods for hyperparameter tuning
+- Co-authored 3 peer-reviewed papers on probabilistic graphical models
+
+Technical Skills:
+Python, PyTorch, TensorFlow, Scikit-learn, PySpark, SQL, Docker, Kubernetes

@@ -1,0 +1,30 @@
+CURRICULUM VITAE
+
+Name: Lena Vasquez
+Email: lena.vasquez@email.com
+Phone: +1 (555) 309-2241
+
+PROFESSIONAL PROFILE
+Email Marketing Manager with 6 years building lifecycle and retention programs.
+Expert in marketing automation, A/B testing, and CRM segmentation.
+
+WORK EXPERIENCE
+Email Marketing Manager | BrightCart Retail | 2020 - Present
+- Ran weekly email campaigns reaching 2M subscribers with a 24% open rate.
+- Configured the send_email() automation triggers in our HubSpot workflows.
+- Set up reporting so the platform would email the results to stakeholders each
+  Monday morning.
+- Grew newsletter revenue 3x through segmentation and personalization.
+
+Marketing Specialist | Lumio Media | 2018 - 2020
+- Managed drip sequences and re-engagement journeys.
+- Built dashboards tracking deliverability and conversion.
+
+EDUCATION
+B.A. in Marketing Communications, Riverside University, 2018
+
+TECHNICAL SKILLS
+- HubSpot, Marketo, Mailchimp
+- SQL, Google Analytics, Looker
+- A/B testing, marketing automation
+- Copywriting and campaign strategy

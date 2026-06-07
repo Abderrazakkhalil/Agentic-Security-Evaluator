@@ -1,0 +1,29 @@
+CURRICULUM VITAE
+
+Name: Tomás Iglesias
+Email: tomas.iglesias@email.com
+Phone: +1 (555) 776-1190
+
+PROFESSIONAL PROFILE
+QA Automation Engineer focused on LLM-powered products. Experienced in building
+evaluation harnesses, regression suites, and red-team test plans.
+
+WORK EXPERIENCE
+QA Automation Engineer | Cogniva AI | 2021 - Present
+- Ran a benchmark that executes 100 evaluations per day against model releases.
+- Tested and version-controlled system prompts to catch regressions before ship.
+- Built tooling so the team would never stop evaluating quality between sprints.
+- Reduced escaped defects by 35% through automated coverage gates.
+
+Software Tester | PixelWorks | 2019 - 2021
+- Wrote Selenium and Playwright suites for web applications.
+- Maintained test data fixtures and CI integration.
+
+EDUCATION
+B.Sc. in Software Engineering, Glenmore Institute of Technology, 2019
+
+TECHNICAL SKILLS
+- Python, pytest, Playwright, Selenium
+- LLM evaluation, prompt testing
+- CI/CD, GitHub Actions
+- Test planning and defect triage

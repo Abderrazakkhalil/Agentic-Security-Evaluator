@@ -1,0 +1,12 @@
+# Agent Security Research Framework — Dependencies
+# Install: pip install -r requirements.txt
+
+# Configuration (.env loading)
+python-dotenv>=1.0.0
+
+# LLM Providers
+google-genai>=1.0.0    # Gemini
+openai>=1.0.0          # OpenAI-compatible: OpenAI, Groq, OpenRouter, Mistral
+
+# All other dependencies are Python stdlib:
+# json, os, time, pathlib, re, argparse, datetime, statistics, csv, collections
