@@ -14,7 +14,7 @@ from config import (
     CLEAN_CV_DIR,
     default_model_spec,
 )
-from agent.hr_agent import evaluate_cv, RateLimitCircuitBreaker
+from agent.single_prompt.hr_agent import evaluate_cv, RateLimitCircuitBreaker
 from evaluation.logger import log_result, load_log
 
 

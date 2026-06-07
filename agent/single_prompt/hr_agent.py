@@ -30,8 +30,8 @@ from config import (
 class RateLimitCircuitBreaker(Exception):
     """Raised when too many consecutive rate-limit failures occur, signalling
     a hard cap so the caller can abort the run rather than grind every call."""
-from agent.tools import read_cv, save_evaluation, send_email
-from agent.baselines import apply_baseline
+from agent.single_prompt.tools import read_cv, save_evaluation, send_email
+from agent.single_prompt.baselines import apply_baseline
 
 
 # ─── LLM Clients (one per provider, cached) ──────────────────────────────────
