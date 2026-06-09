@@ -1,4 +1,5 @@
 # Agent Security Research Framework
+**Read the formal academic paper:** [Agentic-Security-Evaluator (PDF)](./paper/Agentic_Security_Evaluator_Paper.pdf)
 
 A reproducible framework for measuring how LLM-based HR agents behave under
 adversarial input, and how well simple defenses mitigate it — across multiple
