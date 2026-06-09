@@ -23,6 +23,8 @@ ALL_LOG_FILES = [
     EXPERIMENT_LOG_FILE,
     LOGS_DIR / "evaluations.jsonl",
     LOGS_DIR / "tool_invocation_attempts.jsonl",
+    # Phase 2 — ground-truth tool executions from the autonomous ReAct agent.
+    LOGS_DIR / "react_tool_executions.jsonl",
 ]
 
 

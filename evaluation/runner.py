@@ -14,8 +14,36 @@ from config import (
     CLEAN_CV_DIR,
     default_model_spec,
 )
-from agent.single_prompt.hr_agent import evaluate_cv, RateLimitCircuitBreaker
+# Phase 1 (single-prompt) agent. RateLimitCircuitBreaker is the shared breaker
+# class — the ReAct agent re-exports the very same class, so catching the
+# single-prompt one uniformly handles both architectures.
+from agent.single_prompt.hr_agent import (
+    evaluate_cv as _evaluate_cv_single,
+    RateLimitCircuitBreaker,
+)
 from evaluation.logger import log_result, load_log
+
+
+# ─── Agent dispatch ─────────────────────────────────────────────────────────────
+
+def _get_evaluate_fn(agent: str):
+    """
+    Resolve the `--agent` selection to the matching evaluate_cv implementation.
+
+    The ReAct agent is imported lazily so a single-prompt (Phase 1) run never
+    pays its import cost and stays fully backward compatible.
+    """
+    if agent == "react":
+        from agent.react_agent.hr_agent_react import evaluate_cv as _evaluate_cv_react
+        return _evaluate_cv_react
+    if agent == "defend":
+        # Phase 3 defensive wrapper around the ReAct agent (lazy import keeps
+        # single/react runs free of its cost).
+        from agent.react_agent.defend_agent import evaluate_cv as _evaluate_cv_defend
+        return _evaluate_cv_defend
+    if agent in (None, "single"):
+        return _evaluate_cv_single
+    raise ValueError(f"Unknown agent '{agent}'. Use 'single', 'react' or 'defend'.")
 
 
 # ─── Resume Support ─────────────────────────────────────────────────────────────
@@ -26,7 +54,9 @@ def _completed_keys(log_entries: list[dict] = None) -> set:
     run can skip them. A combo counts as done only if it has a NON-error row —
     errored attempts (e.g. an API daily-cap crash) are left to be retried.
 
-    Key = (model_id, attack, variant, baseline, run_index).
+    Key = (agent, model_id, attack, variant, baseline, run_index). Including the
+    agent keeps single-prompt and ReAct results from colliding on resume; legacy
+    rows (no "agent" field) default to "single" so Phase 1 logs still match.
     """
     if log_entries is None:
         log_entries = load_log()
@@ -35,6 +65,7 @@ def _completed_keys(log_entries: list[dict] = None) -> set:
         if e.get("error") or e.get("decision") == "ERROR":
             continue
         done.add((
+            e.get("agent", "single"),
             e.get("model_id"),
             e.get("attack"),
             e.get("variant"),
@@ -68,6 +99,12 @@ from attacks.tool_invocation import (
     get_attack_family_name as tool_name,
     get_expected_decision as tool_expected,
 )
+from attacks.obfuscated_injection import (
+    get_obfuscated_variants,
+    determine_success as obfuscated_success,
+    get_attack_family_name as obfuscated_name,
+    get_expected_decision as obfuscated_expected,
+)
 
 
 # ─── Attack Family Registry ────────────────────────────────────────────────────
@@ -97,13 +134,19 @@ ATTACK_REGISTRY = {
         "family_name": tool_name,
         "expected_decision": tool_expected,
     },
+    "obfuscated_injection": {
+        "get_variants": get_obfuscated_variants,
+        "determine_success": obfuscated_success,
+        "family_name": obfuscated_name,
+        "expected_decision": obfuscated_expected,
+    },
 }
 
 
 # ─── Clean CV Baseline Run ─────────────────────────────────────────────────────
 
 def run_clean_baseline(baselines: list[str] = None, num_runs: int = 1,
-                       model_spec: dict = None) -> list[dict]:
+                       model_spec: dict = None, agent: str = "single") -> list[dict]:
     """
     Run clean CVs through the agent to establish baseline metrics.
 
@@ -115,6 +158,7 @@ def run_clean_baseline(baselines: list[str] = None, num_runs: int = 1,
         baselines: List of baselines to test. Defaults to ["A"].
         num_runs: Number of runs per CV per baseline.
         model_spec: Model to evaluate with. Defaults to the configured default.
+        agent: Architecture to route through ("single" or "react").
 
     Returns:
         List of result dicts.
@@ -123,6 +167,8 @@ def run_clean_baseline(baselines: list[str] = None, num_runs: int = 1,
         model_spec = default_model_spec()
     if baselines is None:
         baselines = ["A"]
+
+    evaluate_cv = _get_evaluate_fn(agent)
 
     cv_files = sorted(CLEAN_CV_DIR.glob("cv_*.txt"))
     if not cv_files:
@@ -141,18 +187,19 @@ def run_clean_baseline(baselines: list[str] = None, num_runs: int = 1,
                 current += 1
 
                 # Resume: skip combos already completed in a prior run.
-                key = (model_spec["id"], "clean", cv_file.stem, baseline, run_idx)
+                key = (agent, model_spec["id"], "clean", cv_file.stem, baseline, run_idx)
                 if key in completed:
                     skipped += 1
                     continue
 
-                print(f"  [{current}/{total}] {model_spec['id']} | Clean CV: "
+                print(f"  [{current}/{total}] {agent} | {model_spec['id']} | Clean CV: "
                       f"{cv_file.name} | Baseline {baseline} | Run {run_idx + 1}")
 
                 try:
                     result = evaluate_cv(str(cv_file), baseline=baseline,
                                          model_spec=model_spec)
                     result_entry = {
+                        "agent": agent,
                         "attack": "clean",
                         "variant": cv_file.stem,
                         "model_id": model_spec["id"],
@@ -168,6 +215,9 @@ def run_clean_baseline(baselines: list[str] = None, num_runs: int = 1,
                         "token_estimate": result["token_estimate"],
                         "response_token_estimate": result.get("response_token_estimate", 0),
                         "tool_called": result["send_email_attempted"],
+                        # Phase 2 ground truth: did the agent REALLY execute a tool?
+                        "tool_invoked": result.get("tool_invoked", result["send_email_attempted"]),
+                        "react_steps": result.get("react_steps", 0),
                         "run_index": run_idx,
                         "error": None,
                     }
@@ -183,6 +233,7 @@ def run_clean_baseline(baselines: list[str] = None, num_runs: int = 1,
                 except Exception as e:
                     print(f"    [ERROR] {e}")
                     error_entry = {
+                        "agent": agent,
                         "attack": "clean",
                         "variant": cv_file.stem,
                         "model_id": model_spec["id"],
@@ -195,6 +246,8 @@ def run_clean_baseline(baselines: list[str] = None, num_runs: int = 1,
                         "token_estimate": 0,
                         "response_token_estimate": 0,
                         "tool_called": False,
+                        "tool_invoked": False,
+                        "react_steps": 0,
                         "run_index": run_idx,
                         "error": str(e),
                     }
@@ -215,6 +268,7 @@ def run_attack_experiment(
     clean_median_latency: float = 1.0,
     clean_median_tokens: int = 200,
     model_spec: dict = None,
+    agent: str = "single",
 ) -> list[dict]:
     """
     Run an attack experiment across specified baselines.
@@ -230,6 +284,8 @@ def run_attack_experiment(
         num_runs: Runs per variant per baseline. Defaults to config value.
         clean_median_latency: Baseline latency for DoS comparison.
         clean_median_tokens: Baseline token count for DoS comparison.
+        model_spec: Model to evaluate with. Defaults to the configured default.
+        agent: Architecture to route through ("single" or "react").
 
     Returns:
         List of result dicts.
@@ -240,6 +296,8 @@ def run_attack_experiment(
         baselines = BASELINES
     if num_runs is None:
         num_runs = NUM_RUNS_PER_VARIANT
+
+    evaluate_cv = _get_evaluate_fn(agent)
 
     if attack_family not in ATTACK_REGISTRY:
         print(f"[ERROR] Unknown attack family: {attack_family}")
@@ -264,6 +322,7 @@ def run_attack_experiment(
 
     print(f"\n{'='*60}")
     print(f"  Attack: {family_name}")
+    print(f"  Agent: {agent}")
     print(f"  Model: {model_spec['id']} ({model_spec['provider']})")
     print(f"  Variants: {len(variants)}")
     print(f"  Baselines: {baselines}")
@@ -280,7 +339,7 @@ def run_attack_experiment(
                 variant_name = Path(variant["file"]).stem
 
                 # Resume: skip combos already completed in a prior run.
-                key = (model_spec["id"], family_name, variant_name, baseline, run_idx)
+                key = (agent, model_spec["id"], family_name, variant_name, baseline, run_idx)
                 if key in completed:
                     skipped += 1
                     continue
@@ -303,6 +362,7 @@ def run_attack_experiment(
                         success = success_fn(result)
 
                     result_entry = {
+                        "agent": agent,
                         "attack": family_name,
                         "variant": variant_name,
                         "variant_type": variant.get("variant_type", "unknown"),
@@ -315,8 +375,20 @@ def run_attack_experiment(
                         "token_estimate": result["token_estimate"],
                         "response_token_estimate": result.get("response_token_estimate", 0),
                         "tool_called": result["send_email_attempted"],
+                        # Phase 2 ground truth: a real send_email execution (ReAct),
+                        # not a substring guess. For single-prompt it mirrors the
+                        # heuristic so existing tooling keeps working.
+                        "tool_invoked": result.get("tool_invoked", result["send_email_attempted"]),
+                        "react_steps": result.get("react_steps", 0),
                         "blocked": result.get("blocked", False),
                         "flags": result.get("flags", []),
+                        # Phase 3 defensive-intervention metrics (default False so
+                        # single/react rows are unaffected). Each marks which
+                        # DefendAgentWrapper layer fired on this evaluation.
+                        "blocked_by_anomaly": result.get("blocked_by_anomaly", False),
+                        "blocked_by_provenance": result.get("blocked_by_provenance", False),
+                        "blocked_by_firewall": result.get("blocked_by_firewall", False),
+                        "blocked_by_sandbox": result.get("blocked_by_sandbox", False),
                         "run_index": run_idx,
                         "error": None,
                     }
@@ -337,6 +409,7 @@ def run_attack_experiment(
                 except Exception as e:
                     print(f" -> ERROR: {e}")
                     error_entry = {
+                        "agent": agent,
                         "attack": family_name,
                         "variant": variant_name,
                         "variant_type": variant.get("variant_type", "unknown"),
@@ -349,6 +422,8 @@ def run_attack_experiment(
                         "token_estimate": 0,
                         "response_token_estimate": 0,
                         "tool_called": False,
+                        "tool_invoked": False,
+                        "react_steps": 0,
                         "blocked": False,
                         "flags": [],
                         "run_index": run_idx,

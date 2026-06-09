@@ -116,6 +116,7 @@ DISPLAY_NAMES = {
     "goal_hijacking": "Goal Hijacking",
     "agentic_dos": "Agentic DoS",
     "tool_invocation": "Tool Invocation",
+    "obfuscated_injection": "Obfuscated Injection",
 }
 
 

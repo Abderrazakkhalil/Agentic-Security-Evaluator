@@ -22,6 +22,7 @@ import argparse
 import sys
 
 from config import (
+    AGENTS,
     BASELINES,
     ATTACK_FAMILIES,
     NUM_RUNS_PER_VARIANT,
@@ -50,8 +51,9 @@ def main():
     parser.add_argument(
         "--attack",
         type=str,
-        choices=ATTACK_FAMILIES + ["all"],
-        help="Attack family to evaluate (or 'all').",
+        help="Attack family to evaluate: a single family, 'all', or a "
+             "comma-separated list (e.g. 'obfuscated_injection,tool_invocation'). "
+             f"Valid families: {ATTACK_FAMILIES}.",
     )
     parser.add_argument(
         "--baseline",
@@ -71,6 +73,15 @@ def main():
         default="default",
         help="Model to evaluate: 'default', 'all' (the MODELS comparison set), "
              f"or an id from config.MODELS ({list(MODELS_BY_ID)}).",
+    )
+    parser.add_argument(
+        "--agent",
+        type=str,
+        choices=AGENTS,
+        default="single",
+        help="Agent architecture: 'single' (Phase 1 single-prompt, default) or "
+             "'react' (Phase 2 autonomous Thought/Action/Observation agent with "
+             "real tool execution).",
     )
     parser.add_argument(
         "--clean-baseline",
@@ -93,7 +104,7 @@ def main():
     # Print configuration
     print(f"\n{'='*60}")
     print(f"  Agent Security Research Framework")
-    print(f"  Provider: {LLM_PROVIDER} | Model: {MODEL_NAME}")
+    print(f"  Agent: {args.agent} | Provider: {LLM_PROVIDER} | Model: {MODEL_NAME}")
     print(f"  Dry Run: {DRY_RUN}")
     print(f"{'='*60}\n")
 
@@ -153,9 +164,11 @@ def main():
         baselines = BASELINES if args.baseline == "all" else [args.baseline] if args.baseline else ["A"]
         total = 0
         for spec in model_specs:
-            print(f"\n{'#'*60}\n  Clean baseline | Model: {spec['id']}\n{'#'*60}")
+            print(f"\n{'#'*60}\n  Clean baseline | Agent: {args.agent} | "
+                  f"Model: {spec['id']}\n{'#'*60}")
             results = run_clean_baseline(baselines=baselines,
-                                         num_runs=args.num_runs, model_spec=spec)
+                                         num_runs=args.num_runs, model_spec=spec,
+                                         agent=args.agent)
             total += len(results)
         print(f"\nCompleted {total} clean CV evaluations across "
               f"{len(model_specs)} model(s).")
@@ -169,7 +182,19 @@ def main():
             sys.exit(1)
 
         baselines = BASELINES if args.baseline == "all" else [args.baseline]
-        attacks = ATTACK_FAMILIES if args.attack == "all" else [args.attack]
+
+        # --attack accepts a single family, 'all', or a comma-separated subset
+        # (the Phase 2 "surgical strike" targets a few families at once).
+        requested = [a.strip() for a in args.attack.split(",") if a.strip()]
+        if "all" in requested:
+            attacks = ATTACK_FAMILIES
+        else:
+            unknown = [a for a in requested if a not in ATTACK_FAMILIES]
+            if unknown:
+                print(f"[ERROR] Unknown attack family/families: {unknown}")
+                print(f"  Valid: {ATTACK_FAMILIES + ['all']}")
+                sys.exit(1)
+            attacks = requested
 
         for spec in model_specs:
             print(f"\n{'#'*60}\n  MODEL: {spec['id']} ({spec['provider']})\n{'#'*60}")
@@ -178,7 +203,7 @@ def main():
             clean_baselines = compute_clean_baselines(model_id=spec["id"])
 
             for attack in attacks:
-                print(f"\n  Running: {attack} on {spec['id']}")
+                print(f"\n  Running: {attack} on {spec['id']} (agent={args.agent})")
                 run_attack_experiment(
                     attack_family=attack,
                     baselines=baselines,
@@ -186,6 +211,7 @@ def main():
                     clean_median_latency=clean_baselines["median_latency"],
                     clean_median_tokens=clean_baselines["median_tokens"],
                     model_spec=spec,
+                    agent=args.agent,
                 )
 
         # Generate tables after all attacks

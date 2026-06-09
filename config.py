@@ -121,12 +121,32 @@ NUM_RUNS_PER_VARIANT = int(os.environ.get("NUM_RUNS", "3"))
 # Valid baselines
 BASELINES = ["A", "B", "C"]
 
+# Valid agent architectures (Phase 1 single-prompt vs. Phase 2 autonomous ReAct
+# vs. Phase 3 defensive wrapper). `single` is the default to preserve backward
+# compatibility with Chapter 1 runs. `defend` wraps the `react` agent with the
+# Phase 3 DefendAgentWrapper (see agent/react_agent/defend_agent.py).
+AGENTS = ["single", "react", "defend"]
+
+# Maximum Thought -> Action -> Observation iterations for the ReAct agent before
+# it is forced to terminate (bounds cost and guards against non-terminating loops).
+REACT_MAX_STEPS = int(os.environ.get("REACT_MAX_STEPS", "6"))
+
+# ─── Phase 3 — DefendAgentWrapper bounds (Layer 1: token/step bounding) ──────────
+# Strict, fail-closed limits enforced by the defensive wrapper. Deliberately
+# tighter than REACT_MAX_STEPS: an autonomous agent that needs more than a few
+# steps on a CV-screening task is treated as anomalous (DoS / reasoning explosion).
+MAX_DEFEND_STEPS = int(os.environ.get("MAX_DEFEND_STEPS", "3"))
+MAX_OUTPUT_TOKENS = int(os.environ.get("MAX_OUTPUT_TOKENS", "250"))
+
 # Valid attack families
 ATTACK_FAMILIES = [
     "indirect_injection",
     "goal_hijacking",
     "agentic_dos",
     "tool_invocation",
+    # Phase 2 adaptive threat corpus — paraphrased / leetspeak / fragmented
+    # payloads engineered to bypass Baseline B's exact-match regex.
+    "obfuscated_injection",
 ]
 
 # ─── Baseline B — Guardrail Patterns ───────────────────────────────────────────
